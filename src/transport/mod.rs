@@ -31,3 +31,8 @@ pub use tls::TlsTransport;
 mod noise;
 #[cfg(feature = "noise")]
 pub use noise::NoiseTransport;
+
+#[cfg(feature = "quic")]
+mod quic;
+#[cfg(feature = "quic")]
+pub use quic::QuicTransport;

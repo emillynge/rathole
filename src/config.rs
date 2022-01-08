@@ -12,6 +12,8 @@ pub enum TransportType {
     Tls,
     #[serde(rename = "noise")]
     Noise,
+    #[serde(rename = "quic")]
+    Quic,
 }
 
 impl Default for TransportType {
@@ -189,7 +191,7 @@ impl Config {
     fn validate_transport_config(config: &TransportConfig, is_server: bool) -> Result<()> {
         match config.transport_type {
             TransportType::Tcp => Ok(()),
-            TransportType::Tls => {
+            TransportType::Quic | TransportType::Tls => {
                 let tls_config = config
                     .tls
                     .as_ref()
