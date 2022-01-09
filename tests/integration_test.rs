@@ -87,6 +87,7 @@ async fn udp() -> Result<()> {
     #[cfg(not(target_os = "macos"))]
     test("tests/for_udp/tls_transport.toml", Type::Udp).await?;
     test("tests/for_udp/noise_transport.toml", Type::Udp).await?;
+    test("tests/for_udp/quic_transport.toml", Type::Udp).await?;
 
     Ok(())
 }
